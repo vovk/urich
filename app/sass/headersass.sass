@@ -1,0 +1,75 @@
+@import "fonts.sass";
+@import "vars.sass";
+@import "app/sass/fonts.sass"
+
+$main-color: #87b549
+
+body
+
+header
+	background-color: #202020
+	position: fixed
+	width: 100%
+	.logo
+		img
+			margin: 10px auto
+	ul.sub-menu
+		display: none
+		li
+			min-height: auto
+			line-height: 1
+			a
+				color: #fff!important
+				&:hover
+					color: $main-color!important
+	ul
+		display: flex
+		align-items: center
+		justify-content: space-around
+		list-style: none
+		min-height: 65px
+		margin: 0
+		li
+			border-bottom: 2px solid transparent 
+			min-height: 65px
+			line-height: 65px
+			cursor: pointer
+			padding: 10px 0
+			a
+				color: #fff
+				font-family: "ProximaNova-Bold"
+				display: block
+				text-transform: uppercase
+				&:hover
+					color: $main-color
+					text-decoration: none
+					outline: none
+				&:active
+					color: $main-color
+					text-decoration: none
+					outline: none
+				&:focus
+					color: $main-color
+					text-decoration: none
+					outline: none
+		li.drop
+			&:hover
+				border-bottom: 2px solid #fff
+				a
+					color: $main-color
+				ul.sub-menu
+					display: block
+					padding-left: 0
+					padding-top: 25px
+					position: absolute
+
+				
+#top
+	background: url(../img/main.jpg)
+	height: 100vh
+	.tug
+		background-color: rgba(43, 43, 43, .8)
+		height: 30%
+
+
+@import "media.sass";
