@@ -2,7 +2,35 @@
 @import "vars.sass";
 @import "app/sass/fonts.sass"
 
+h2
+	color: #fff!important
+	font: 50px "ProximaNova", sans-serif!important
+	text-align: center
+.icons
+	position: absolute
+	bottom: 0
+	ul
+		li
+			color: red
+			display: inline-block
+			width: 50px
+			height: 50px
+		@for $i from 1 to 6
+			.item-#{$i} 
+		  		background: url(../img/#{$i}.jpg) no-repeat left center
 
+
+
+#top
+	background: url(../img/main.jpg)
+	height: 100vh
+	position: relative
+	&::before
+		background-color: rgba(25, 25, 25, .8)
+		display: table
+		content: ""
+		height: 35%
+		width: 100%
 
 
 

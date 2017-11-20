@@ -12,8 +12,6 @@ var fileinclude = require('gulp-file-include');
 var gulpRemoveHtml = require('gulp-remove-html');
 var cache = require('gulp-cache');
 var del = require('del');
-var bourbon = require('node-bourbon');
-// var ftp = require('vinyl-ftp');
 var runSequence = require('run-sequence');
 
 gulp.task('browser-sync', function() {
@@ -26,9 +24,10 @@ gulp.task('browser-sync', function() {
 
 gulp.task('sass', ['headersass'], function() {
 	return gulp.src('app/sass/**/*.sass')
-		.pipe(sass({
-				includePaths: bourbon.includePaths
-			}).on('error', sass.logError))
+		// .pipe(sass({
+		// 		includePaths: bourbon.includePaths
+		// 	}).on('error', sass.logError))
+		.pipe(sass().on('error', sass.logError))
 		.pipe(rename({suffix: '.min', prefix : ''}))
 		.pipe(autoprefixer(['last 15 versions']))
 		.pipe(cleanCSS())
@@ -38,9 +37,10 @@ gulp.task('sass', ['headersass'], function() {
 
 gulp.task('headersass', function() {
 	return gulp.src('app/header.sass')
-		.pipe(sass({
-			includePaths: bourbon.includePaths
-		}).on('error', sass.logError))
+		// .pipe(sass({
+		// 	includePaths: bourbon.includePaths
+		// }).on('error', sass.logError))
+		.pipe(sass().on('error', sass.logError))
 		.pipe(rename({suffix: '.min', prefix : ''}))
 		.pipe(autoprefixer(['last 15 versions']))
 		.pipe(cleanCSS())
@@ -50,7 +50,7 @@ gulp.task('headersass', function() {
 
 gulp.task('libs', function() {
 	return gulp.src([
-			'app/libs/jquery/dist/jquery.min.js'
+			'app/libs/jquery/dist/jquery.min.js', 
 		])
 		.pipe(concat('libs.min.js'))
 		.pipe(uglify())
@@ -66,7 +66,7 @@ gulp.task('watch', ['sass', 'libs', 'browser-sync'], function(){
 });
 
 gulp.task('imagemin', function(){
-	return gulp.src('app/img/**.*+(png|jpg|jpeg|gif|svg)')
+	return gulp.src('app/img/**/*.+(png|jpg|jpeg|gif|svg)')
 		// кэширование изображений, прошедших через imagemin
 		.pipe(cache(imagemin({
 			interlaced: true,
@@ -101,7 +101,7 @@ gulp.task('removedist', function() { return del.sync('dist'); });
 // 	);
 // });
 
-gulp.task('build', ['removedist', 'buildhtml'/*, 'imagemin'*/, 'sass', 'libs'], function() {
+gulp.task('build', ['removedist', 'buildhtml', 'imagemin', 'sass', 'libs'], function() {
 
 	var buildCss = gulp.src([
 		'app/css/headersass.min.css',

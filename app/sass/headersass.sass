@@ -4,12 +4,11 @@
 
 $main-color: #87b549
 
-body
-
 header
 	background-color: #202020
 	position: fixed
 	width: 100%
+	z-index: 100
 	.logo
 		img
 			margin: 10px auto
@@ -18,6 +17,7 @@ header
 		li
 			min-height: auto
 			line-height: 1
+			margin: 10px
 			a
 				color: #fff!important
 				&:hover
@@ -62,14 +62,6 @@ header
 					padding-left: 0
 					padding-top: 25px
 					position: absolute
-
-				
-#top
-	background: url(../img/main.jpg)
-	height: 100vh
-	.tug
-		background-color: rgba(43, 43, 43, .8)
-		height: 30%
 
 
 @import "media.sass";
