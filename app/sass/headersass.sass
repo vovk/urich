@@ -3,21 +3,29 @@
 @import "app/sass/fonts.sass"
 
 $main-color: #87b549
+$standart-padding: 0 150px
+
+.nopadding
+	padding: 0!important
 
 header
 	background-color: #202020
 	position: fixed
 	width: 100%
 	z-index: 100
+	padding: $standart-padding
 	.logo
 		img
-			margin: 10px auto
+			margin-top: 10px
 	ul.sub-menu
 		display: none
+		background-color: rgba(25, 25, 25, .1)
+		margin-left: -5px
 		li
 			min-height: auto
 			line-height: 1
-			margin: 10px
+			margin: 0
+			padding-left: 5px
 			a
 				color: #fff!important
 				&:hover
@@ -29,6 +37,7 @@ header
 		list-style: none
 		min-height: 65px
 		margin: 0
+		padding-left: 0
 		li
 			border-bottom: 2px solid transparent 
 			min-height: 65px

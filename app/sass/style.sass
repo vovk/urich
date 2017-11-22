@@ -2,41 +2,233 @@
 @import "vars.sass";
 @import "app/sass/fonts.sass"
 
+$main-color: #87b549
+$standart-padding: 0 150px
+$width: 100%
+
 h2
 	color: #fff!important
-	font: 50px "ProximaNova", sans-serif!important
-	text-align: center
+	font: 55px "ProximaNova-Bold", sans-serif!important
+	line-height: 1!important
+	text-align: left
+
+h3
+	color: #404040
+	font: 35px "ProximaNova", sans-serif!important
+	line-height: 1!important
+	margin: 0!important
+	text-align: left
+
 .icons
+	width: 80%
 	position: absolute
-	bottom: 0
+	bottom: 2.5vh
 	ul
+		margin: 0 auto
+		padding: 0
 		li
-			color: red
+			cursor: pointer
 			display: inline-block
-			width: 50px
-			height: 50px
-		@for $i from 1 to 6
+			width: 7vh
+			height: 7vh
+		@for $i from 1 to 22
 			.item-#{$i} 
-		  		background: url(../img/#{$i}.jpg) no-repeat left center
+		  		background: url(../img/icons/#{$i}.png) no-repeat center center
 
+.wrapper
+	padding: $standart-padding
+	overflow: hidden
 
+p.small-text
+	font: 18px "ProximaNova", sans-serif
+	line-height: 1
+
+p.text
+	font: 22px "ProximaNova", sans-serif
+	line-height: 1.5
+	margin-top: 2.5vh
+	width: 75%
 
 #top
-	background: url(../img/main.jpg)
+	background: url(../img/main.jpg) 0 0 no-repeat
+	background-size: cover
 	height: 100vh
 	position: relative
+	box-shadow: inset 0px -61px 124px 96px rgba(0,0,0,0.75);
 	&::before
 		background-color: rgba(25, 25, 25, .8)
 		display: table
 		content: ""
-		height: 35%
+		height: 30%
 		width: 100%
+	.wrapper
+		overflow: visible
+		p.text
+			color: #fff
+		.half
+			padding-top: 10vh
+			ul.small-list
+				margin: 0
+				padding: 0
+				width: $width
+				li
+					float: left
+					width: $width / 3
+					img
+						margin: 25px auto
+					p.small-text
+						color: #fff
+						text-align: center
+
+#middle
+	background-color: #e2e2e2
+	height: 100vh
+	padding-top: 10vh
+	ul.services
+		list-style: none
+		padding-left: 0
+		padding-top: 50px
+		li
+			padding-left: 75px
+			margin-bottom: 5vh
+			&:last-child
+				margin-bottom: 0	
+		@for $i from 1 through 5
+			.services-item-#{$i} 
+		  		background: url(../img/services/icon-#{$i}.png) no-repeat left top	
+			h4
+				font: 25px "ProximaNova-Bold", sans-serif
+			p
+				font: 18px "ProximaNova", sans-serif
+
+#bottom
+	background-color: #262626
+	// height: 50vh
+	padding-top: 10vh
+	padding-bottom: 10vh
+	.form
+		background-color: #393939
+		border:
+			top: 10px solid $main-color
+			left: 1px solid #4d4d4d
+			right: 1px solid #4d4d4d
+			bottom: 1px solid #4d4d4d
+		padding-bottom: 25px
+		legend
+			color: #fff
+			font: 25px "ProximaNova", sans-serif
+			text-align: center
+			margin-top: 25px
+			span
+				color: #d42229
+		.form-group
+			margin-bottom: 25px
+			padding: 5px 25px
+			width: $width
+			overflow: hidden
+			&:last-child
+				margin-bottom: 0
+			input
+				float: left
+				background-color: #262626
+				border: 1px solid #4d4d4d
+				color: #fff
+				font: 22px "ProximaNova", sans-serif
+				width: $width / 3
+				padding: 10px
+				&:focus
+					outline: none
+				&:active
+					outline: none
+			textarea
+				background-color: #262626
+				border: 1px solid #4d4d4d
+				color: #fff
+				font: 22px "ProximaNova", sans-serif
+				max-width: 100%
+				min-width: 100%
+				min-height: 222px
+				max-height: 222px
+				padding: 10px
+				&:focus
+					outline: none
+				&:active
+					outline: none
+			.form-text
+				width: 60%
+				overflow: hidden
+				float: left
+				padding-top: 5px
+			.form-button
+				width: 40%
+				overflow: hidden
+				float: left
+				input.get-estimate
+					background-color: $main-color
+					border: none
+					color: #fff
+					font: 14px "ProximaNova-Bold", sans-serif
+					min-height: 40px
+					display: block
+					width: 300px
+					margin: 0 auto
+			label
+				color: #fff
+				font: 13.5px "ProximaNova", sans-serif
+	.review
+		background-color: #393939
+		border: 1px solid #4d4d4d
+		min-height: 526px
+		.review-item
+			padding-bottom: 25px
+			margin-bottom: 25px
+			overflow: hidden
+			position: relative
+			&:before
+				position: absolute
+				display: table
+				content: ""
+				border: 1px solid #fff
+				width: 100px
+				left: calc( 50% - 50px )
+				bottom: 0
+			.review-img
+				float: left
+				width: 30%
+				padding: 10px
+				img
+					margin: 0 auto
+			.review-text
+				float: left
+				width: 70%
+				padding: 10px
+				p
+					color: #fff
+					font: 14px "ProximaNova", sans-serif
+					line-height: 1.2
+				p.quote
+					margin: 0
+			.block-border
+				border: 1px solid #fff
+				width: 200px
+				margin: 0 auto
+				overflow: hidden
 
 
-
-
-
-
+footer
+	background-color: #000
+	height: 10vh
+	span
+		color: #fff
+		font: 18px "ProximaNova", sans-serif
+		line-height: 10vh
+	.footer-icons
+		padding-top: 30px
+		a
+			i.fa
+				color: #fff
+				&:hover
+					color: $main-color
 
 
 
